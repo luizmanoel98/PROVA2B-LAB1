@@ -11,14 +11,9 @@ namespace WebAppPB2_LUIZ_MANOEL.Models
         [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Campo obrigatorio!!!")]
         public string Nome { get; set; }
         public string Descricao { get; set; }
-    
-        public enum Tipo
-        {
-            Aberto = 1,
-            [System.ComponentModel.DataAnnotations.Display(Name = "Em andamento")]
-            Em_atendimento = 2, 
-            Fechado = 3
-        }
+        public Tipo Tipo { get; set; }
+
+
 
 
     }

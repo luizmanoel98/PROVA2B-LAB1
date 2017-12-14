@@ -17,7 +17,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
         // GET: Atendimentos
         public ActionResult Index()
         {
-            return View(db.Atendimentoes.ToList());
+            return View(db.Atendimentos.ToList());
         }
 
         // GET: Atendimentos/Details/5
@@ -27,7 +27,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atendimento atendimento = db.Atendimentoes.Find(id);
+            Atendimento atendimento = db.Atendimentos.Find(id);
             if (atendimento == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Atendimentoes.Add(atendimento);
+                db.Atendimentos.Add(atendimento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atendimento atendimento = db.Atendimentoes.Find(id);
+            Atendimento atendimento = db.Atendimentos.Find(id);
             if (atendimento == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atendimento atendimento = db.Atendimentoes.Find(id);
+            Atendimento atendimento = db.Atendimentos.Find(id);
             if (atendimento == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace WebAppPB2_LUIZ_MANOEL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Atendimento atendimento = db.Atendimentoes.Find(id);
-            db.Atendimentoes.Remove(atendimento);
+            Atendimento atendimento = db.Atendimentos.Find(id);
+            db.Atendimentos.Remove(atendimento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
