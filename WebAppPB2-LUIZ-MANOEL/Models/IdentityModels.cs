@@ -29,5 +29,7 @@ namespace WebAppPB2_LUIZ_MANOEL.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebAppPB2_LUIZ_MANOEL.Models.Atendimento> Atendimentoes { get; set; }
     }
 }

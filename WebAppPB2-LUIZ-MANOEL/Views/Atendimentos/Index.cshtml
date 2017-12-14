@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebAppPB2_LUIZ_MANOEL.Models.Atendimento>
+
+@{
+    ViewBag.Title = "Atendimento";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar novo atendimento", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detailhes", "Detailhes", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id })
+            </td>
+        </tr>
+    </tbody>
+
+}
+
+</table>
+
+@section scripts {
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function () {
+           $('table').dataTable({
+               "order": [[2, "asc"]],
+               "language": {
+                   "url": "@Url.Content("~/scripts")/PTBR.json"
+               }
+           });
+       });
+    </script>
+    }
